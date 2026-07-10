@@ -1,0 +1,232 @@
+<!--
+Reusable product planning form for Bruce Amazon market research HTML reports.
+Place this section after "新品卖点排序". If the report already has matching
+button/input/table styles, keep the structure and merge only the needed CSS.
+-->
+<style>
+  .product-plan {
+    overflow-x: auto;
+    background: var(--paper, #fff);
+    border: 1px solid var(--line, #d9dee7);
+  }
+  .product-plan table {
+    min-width: 920px;
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--paper, #fff);
+  }
+  .product-plan th,
+  .product-plan td {
+    border: 1px solid #222;
+    padding: 0;
+    vertical-align: top;
+  }
+  .product-plan th {
+    background: #f7f8fa;
+    text-align: center;
+  }
+  .product-plan .field-label {
+    width: 160px;
+    min-width: 160px;
+    padding: 12px 10px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 700;
+    background: #fbfcfe;
+  }
+  .product-plan .plan-title {
+    height: 54px;
+    font-size: 15px;
+  }
+  .product-plan input,
+  .product-plan textarea {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--ink, #182033);
+    font: inherit;
+    padding: 12px;
+    resize: vertical;
+  }
+  .product-plan input { min-height: 38px; }
+  .product-plan textarea {
+    min-height: 66px;
+    display: block;
+  }
+  .product-plan input:focus,
+  .product-plan textarea:focus {
+    background: #fff8df;
+    box-shadow: inset 0 0 0 2px #e0b54f;
+  }
+  .form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 14px;
+  }
+  .form-actions button {
+    border: 1px solid var(--line, #d9dee7);
+    background: var(--paper, #fff);
+    color: var(--ink, #182033);
+    padding: 9px 13px;
+    font: inherit;
+    cursor: pointer;
+  }
+  .form-actions button.primary {
+    background: var(--blue, #2563a7);
+    border-color: var(--blue, #2563a7);
+    color: #fff;
+  }
+  .save-state {
+    color: var(--muted, #657083);
+    font-size: 13px;
+  }
+</style>
+
+<section>
+  <div class="wrap">
+    <h2>填写产品规划表单</h2>
+    <p>请直接在下方表单中填写 1-3 个 SKU 方案。内容会自动保存在当前浏览器；填写完成后可复制表单内容发给我，我会继续输出最终产品定义和产品策略。</p>
+    <form id="productPlanForm" class="product-plan">
+      <table>
+        <tr>
+          <th class="field-label" rowspan="2">SKU/型号</th>
+          <th class="plan-title" colspan="3">产品规划</th>
+        </tr>
+        <tr>
+          <td><input data-field="sku_1" type="text" placeholder="xxx（型号名）"></td>
+          <td><input data-field="sku_2" type="text" placeholder="xxx（型号名，选填）"></td>
+          <td><input data-field="sku_3" type="text" placeholder="xxx（型号名，选填）"></td>
+        </tr>
+        <tr>
+          <td class="field-label">产品定价（USD）</td>
+          <td><input data-field="price_1" type="text" inputmode="decimal" placeholder="例如：19.99"></td>
+          <td><input data-field="price_2" type="text" inputmode="decimal" placeholder="选填"></td>
+          <td><input data-field="price_3" type="text" inputmode="decimal" placeholder="选填"></td>
+        </tr>
+        <tr>
+          <td class="field-label">核心卖点</td>
+          <td><textarea data-field="core_1" placeholder="例如：耐摔包边、低味好笔、双面学习模板"></textarea></td>
+          <td><textarea data-field="core_2" placeholder="选填"></textarea></td>
+          <td><textarea data-field="core_3" placeholder="选填"></textarea></td>
+        </tr>
+        <tr>
+          <td class="field-label">次要卖点</td>
+          <td><textarea data-field="secondary_1" placeholder="例如：收纳袋、彩色分组边、任务卡"></textarea></td>
+          <td><textarea data-field="secondary_2" placeholder="选填"></textarea></td>
+          <td><textarea data-field="secondary_3" placeholder="选填"></textarea></td>
+        </tr>
+        <tr>
+          <td class="field-label">产品配置&amp;性能（选填）</td>
+          <td><textarea data-field="spec_1" placeholder="例如：12-pack；9x12 in；12 支笔；12 个擦子；板厚 3mm"></textarea></td>
+          <td><textarea data-field="spec_2" placeholder="选填"></textarea></td>
+          <td><textarea data-field="spec_3" placeholder="选填"></textarea></td>
+        </tr>
+        <tr>
+          <td class="field-label">销售渠道</td>
+          <td><input data-field="channel_1" type="text" placeholder="例如：Amazon US / DTC / 批发"></td>
+          <td><input data-field="channel_2" type="text" placeholder="选填"></td>
+          <td><input data-field="channel_3" type="text" placeholder="选填"></td>
+        </tr>
+        <tr>
+          <td class="field-label">预估毛利率</td>
+          <td><input data-field="margin_1" type="text" inputmode="decimal" placeholder="例如：45%"></td>
+          <td><input data-field="margin_2" type="text" inputmode="decimal" placeholder="选填"></td>
+          <td><input data-field="margin_3" type="text" inputmode="decimal" placeholder="选填"></td>
+        </tr>
+        <tr>
+          <td class="field-label">上市时间</td>
+          <td><input data-field="launch_1" type="text" placeholder="例如：2026-08 返校季前"></td>
+          <td><input data-field="launch_2" type="text" placeholder="选填"></td>
+          <td><input data-field="launch_3" type="text" placeholder="选填"></td>
+        </tr>
+      </table>
+    </form>
+    <div class="form-actions">
+      <button class="primary" type="button" id="copyPlan">复制已填写内容</button>
+      <button type="button" id="clearPlan">清空表单</button>
+      <span id="saveState" class="save-state">未填写</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  const planStorageKey = "amazon-market-research-product-plan";
+  const planFields = Array.from(document.querySelectorAll("#productPlanForm [data-field]"));
+  const saveState = document.getElementById("saveState");
+
+  function collectPlanData() {
+    return planFields.reduce((data, field) => {
+      data[field.dataset.field] = field.value;
+      return data;
+    }, {});
+  }
+
+  function setSaveState(text) {
+    if (saveState) saveState.textContent = text;
+  }
+
+  function savePlanData() {
+    localStorage.setItem(planStorageKey, JSON.stringify(collectPlanData()));
+    setSaveState("已自动保存");
+  }
+
+  function restorePlanData() {
+    const saved = localStorage.getItem(planStorageKey);
+    if (!saved) return;
+    try {
+      const data = JSON.parse(saved);
+      planFields.forEach((field) => {
+        field.value = data[field.dataset.field] || "";
+      });
+      setSaveState("已载入上次填写内容");
+    } catch (error) {
+      setSaveState("上次保存内容无法读取");
+    }
+  }
+
+  function formatPlanForCopy() {
+    const data = collectPlanData();
+    const rowNames = [
+      ["SKU/型号", "sku"],
+      ["产品定价（USD）", "price"],
+      ["核心卖点", "core"],
+      ["次要卖点", "secondary"],
+      ["产品配置&性能（选填）", "spec"],
+      ["销售渠道", "channel"],
+      ["预估毛利率", "margin"],
+      ["上市时间", "launch"]
+    ];
+    const lines = ["| 字段 | SKU 1 | SKU 2 | SKU 3 |", "|---|---|---|---|"];
+    rowNames.forEach(([label, key]) => {
+      const values = [1, 2, 3].map((index) => (data[`${key}_${index}`] || "").replace(/\n/g, "<br>"));
+      lines.push(`| ${label} | ${values[0]} | ${values[1]} | ${values[2]} |`);
+    });
+    return lines.join("\n");
+  }
+
+  planFields.forEach((field) => {
+    field.addEventListener("input", savePlanData);
+  });
+  restorePlanData();
+
+  document.getElementById("copyPlan").addEventListener("click", async () => {
+    const text = formatPlanForCopy();
+    try {
+      await navigator.clipboard.writeText(text);
+      setSaveState("已复制，可直接粘贴发送");
+    } catch (error) {
+      setSaveState("复制失败，请手动选择表格内容");
+    }
+  });
+
+  document.getElementById("clearPlan").addEventListener("click", () => {
+    planFields.forEach((field) => {
+      field.value = "";
+    });
+    localStorage.removeItem(planStorageKey);
+    setSaveState("已清空");
+  });
+</script>
